@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyboard Events Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #inputBox {
+      width: 300px;
+      height: 40px;
+      font-size: 18px;
+      padding: 8px;
+    }
+    #log {
+      width: 90%;
+      margin-top: 20px;
+      max-height: 200px;
+      overflow-y: auto;
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Type inside the input box:</h2>
+  <input type="text" id="inputBox" placeholder="Start typing..." autofocus>
+
+  <div id="log"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

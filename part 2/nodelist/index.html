@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cherry</li>
+</ul>
+
+<script>
+  const items = document.querySelectorAll('li'); // returns a NodeList
+
+  console.log(items);         // NodeList(3) [li, li, li]
+  console.log(items.length);  // 3
+
+  // Loop through NodeList
+  items.forEach(item => {
+    console.log(item.textContent);
+  });
+</script>
+
+</body>
+</html>

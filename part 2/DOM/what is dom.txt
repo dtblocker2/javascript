@@ -1,0 +1,94 @@
+🌳 Document Object Model (DOM) — JavaScript’s Interface to the Web Page
+The DOM is a programmatic representation of the HTML structure of a webpage. JavaScript uses the DOM to read, modify, and interact with the page.
+
+✅ Think of the DOM Like a Tree
+Example HTML:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+  <head><title>Page Title</title></head>
+  <body>
+    <h1>Hello</h1>
+    <p>Paragraph</p>
+  </body>
+</html>
+It becomes a tree-like structure in memory:
+
+css
+Copy code
+Document
+ └── html
+     ├── head
+     │   └── title
+     └── body
+         ├── h1
+         └── p
+✅ JavaScript DOM Access
+You can access and modify these elements using JavaScript.
+
+🟨 Access Elements
+javascript
+Copy code
+document.getElementById("myId");
+document.getElementsByClassName("myClass");
+document.getElementsByTagName("p");
+
+document.querySelector("p");         // First <p>
+document.querySelectorAll("p");      // All <p>
+🟨 Modify Content or Style
+javascript
+Copy code
+const heading = document.querySelector("h1");
+heading.textContent = "Welcome!";      // Change text
+heading.style.color = "blue";         // Change style
+🟨 Create / Add / Remove Elements
+javascript
+Copy code
+const newPara = document.createElement("p");
+newPara.textContent = "New paragraph";
+document.body.appendChild(newPara); // Adds to end of <body>
+
+document.body.removeChild(newPara); // Removes it
+🟨 DOM Events
+html
+Copy code
+<button id="btn">Click Me</button>
+javascript
+Copy code
+document.getElementById("btn").addEventListener("click", function() {
+    alert("Button was clicked!");
+});
+🧠 DOM is...
+Concept	Meaning
+document	The root of the DOM. Represents the entire web page
+node	Any individual part of the page: element, text, etc.
+element	A type of node (e.g., <h1>, <p>)
+event	An interaction like click, input, hover, etc.
+
+🔧 Use Cases of DOM in Real Projects:
+Changing themes (dark/light)
+
+Real-time form validation
+
+Showing/hiding elements
+
+Building interactive games or quizzes
+
+Live search filters
+
+Would you like me to make a live mini-project (e.g., quiz app, to-do list, etc.) using DOM?
+
+
+
+
+
+
+
+
+
+
+Skills
+
+
