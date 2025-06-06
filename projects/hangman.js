@@ -1,7 +1,9 @@
-var lives = 7;
-var lives_counter = document.getElementById("lives_counter");
+//some global variables
+var net_lives = 7;
+const lives_counter = document.getElementById("lives_counter");
 var history_list =[]
 
+//function area
 async function getRandomWord() {
     try {
         const response = await fetch('https://random-word-api.vercel.app/api?words=1');
@@ -22,6 +24,8 @@ function input_checker(random_word){
     var input_letter = document.getElementById("input_letter").value;
     var input_field = document.getElementById("input_field");
     var history = document.getElementById("history");
+    console.log(history_list)
+
 
     if (!input_letter.trim()) {
         alert("Enter a letter");
@@ -89,11 +93,24 @@ function reveal_full_word(random_word){
     document.getElementById("reset").style.display = "block";
 }
 
+document.getElementById("reset").onclick = () => {
+    net_lives = 7;
+    history_list =[]
+    main(); // re-run the game and reset history, lives, etc.
+};
+
+//took this out of main function cause it was sending multiple iterations of enter key
+document.getElementById("input_letter").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent form submission if inside a form
+        document.getElementById("submit_btn").click(); // or call input_checker(random_word)
+    }
+});
+
 async function main() {
-    history_list = [];
     document.getElementById("history").innerHTML = '';
 
-    lives = 5;
+    lives = net_lives;
     const { random_word, length_random_word } = await getRandomWord();
     document.getElementById("input_answer").innerHTML = ``;
     document.getElementById("reset").style.display = "none";
@@ -106,13 +123,7 @@ async function main() {
 
     document.getElementById('submit_btn').onclick = () => input_checker(random_word);
     console.log(random_word);
-
-    document.getElementById("input_letter").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Prevent form submission if inside a form
-            document.getElementById("submit_btn").click(); // or call input_checker(random_word)
-        }
-    });
 };
 
+//main function executed
 main();
